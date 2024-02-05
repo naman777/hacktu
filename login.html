@@ -1,100 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .login-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .password-container {
-            position: relative;
-        }
-
-        .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #666;
-        }
-
-        /* Center-align buttons */
-        button {
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
-</head>
-<body>
-
-<div class="login-container">
-    <h2>Login</h2>
-    <form id="loginForm" onsubmit="validateForm(event)">
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <div id="emailError" style="color: red;"></div>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <form action="#" class="form">
+        <h2>Login</h2>
+        <div class="field email-field">
+          <div class="input-field">
+            <input type="email" placeholder="Email" class="email" />
+          </div>
+          <span class="error email-error">
+            <i class="bx bx-error-circle error-icon"></i>
+            <p class="error-text">Please enter a valid email</p>
+          </span>
         </div>
-        <div class="form-group password-container">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <span class="toggle-password" onclick="togglePasswordVisibility()">Show</span>
+        <div class="field create-password">
+          <div class="input-field">
+            <input
+              type="password"
+              placeholder="Password"
+              class="password"
+            />
+            <i class="bx bx-hide show-hide"></i>
+          </div>
+          <span class="error password-error">
+            <i class="bx bx-error-circle error-icon"></i>
+            <p class="error-text">
+              Please enter atleast 8 charatcer with number, symbol, small and
+              capital letter.
+            </p>
+          </span>
         </div>
-        <button type="submit">Login</button>
-    </form>
-</div>
-
-<script>
-    function togglePasswordVisibility() {
-        const passwordInput = document.getElementById('password');
-        const toggleButton = document.querySelector('.toggle-password');
-
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            toggleButton.textContent = 'Hide';
-        } else {
-            passwordInput.type = 'password';
-            toggleButton.textContent = 'Show';
-        }
-    }
-
-    function validateForm(event) {
-        const emailInput = document.getElementById('email');
-        const emailError = document.getElementById('emailError');
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(emailInput.value)) {
-            emailError.textContent = 'Invalid email format';
-            event.preventDefault(); // Prevent form submission
-        } else {
-            emailError.textContent = ''; // Clear error message
-        }
-    }
-</script>
-
-</body>
+        <div class="input-field button">
+          <input type="submit" value="Login" class="submit-btn" />
+        </div>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
